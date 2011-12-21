@@ -1,1 +1,18 @@
 MLDemos is a user-friendly visualization interface for various machine learning algorithms for classification, clustering, regression and dynamical systems. Created by Basilio Noris <http://mldemos.epfl.ch/>
+
+I change some .h files to compile in Ubuntu 10.10 32bit with OpenCV2.3.1
+
+INSTRUCTION:
+
+>> git clone git://github.com/barak/mldemos.git
+>> cd MLvisualdemos
+>> git checkout debian
+>> dpkg-checkbuilddeps
+>> fakeroot debian/rules binary
+There will be some errors occurr, 
+copy file basicOpenCV.h to 2 folders: /MLvisualdemos/_AlgorithmsPlugins/OpenCV and /MLvisualdemos/_IOPlugins/PCAFaces
+copy file Makefile.pluginOpenCV to folder /MLvisualdemos/_AlgorithmsPlugins/OpenCV
+copy file Makefile.pluginPCAFaces to folder /MLvisualdemos/_IOPlugins/PCAFaces
+again do
+>> fakeroot debian/rules binary
+>> sudo dpkg --install ../mldemos_*.deb
